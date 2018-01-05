@@ -1,0 +1,47 @@
+hash: 017ea2c721c7234061567f15f17aee51bd0596757aba928f6bc69dcc10c02a9a
+updated: 2018-01-05T17:04:13.170038+08:00
+imports:
+- name: github.com/astaxie/beego
+  version: bf5c5626ab429e66d88602e1ab1ab5fbf4629a01
+  subpackages:
+  - config
+  - context
+  - context/param
+  - grace
+  - logs
+  - session
+  - toolbox
+  - utils
+- name: github.com/bradfitz/gomemcache
+  version: 1952afaa557dc08e8e0d89eafab110fb501c1a2b
+  subpackages:
+  - memcache
+- name: github.com/cuirixin/phoenix_corelib
+  version: 7364b400ab58370c47473b45a0b8ef563dc52773
+  subpackages:
+  - libs/wechat/context
+  - libs/wechat/mina
+  - utils
+  - utils/cache
+- name: github.com/dgrijalva/jwt-go
+  version: dbeaa9332f19a944acb5736b4456cfcc02140e29
+- name: github.com/garyburd/redigo
+  version: d1ed5c67e5794de818ea85e6b522fda02623a484
+  subpackages:
+  - internal
+  - redis
+- name: github.com/gogap/ali_mns
+  version: bfb19597e502d8a51f41016e3396d31ab0fced9c
+- name: github.com/gogap/errors
+  version: 149c546090d0ac947ee5f6772d431e30cf0f6f3b
+- name: github.com/gogap/logs
+  version: 31c6d1e28b2c124efcce7234fc397d2121ab5a1d
+- name: github.com/gogap/stack
+  version: fef68dddd4f8092a1be1acacb121f847315e5c94
+- name: github.com/gogather/com
+  version: 4423ca58844cc7256a7ad433d478813659187861
+- name: github.com/gogather/iplocation
+  version: e8439d3c857025b1d0cd05af4bfde4069da8bffa
+- name: github.com/mreiferson/go-httpclient
+  version: 31f0106b4474f14bc441575c19d3a5fa21aa1f6c
+testImports: []
