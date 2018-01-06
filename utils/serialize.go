@@ -1,9 +1,12 @@
 package utils
 
 import (
+	"fmt"
 	"bytes"
 	"encoding/gob"
 	"encoding/json"
+	"reflect"
+  "errors"
 )
 
 // json编码
@@ -35,4 +38,25 @@ func Decode(data []byte, to interface{}) error {
 	buf := bytes.NewBuffer(data)
 	dec := gob.NewDecoder(buf)
 	return dec.Decode(to)
+}
+
+// 设置Struct中某个属性值
+func SetField(obj interface{}, name string, value interface{}) error {
+	structValue := reflect.ValueOf(obj).Elem()
+	structFieldValue := structValue.FieldByName(name)
+	if !structFieldValue.IsValid() {
+			return fmt.Errorf("No such field: %s in obj", name)
+	}
+
+	if !structFieldValue.CanSet() {
+			return fmt.Errorf("Cannot set %s field value", name)
+	}
+
+	structFieldType := structFieldValue.Type()
+	val := reflect.ValueOf(value)
+	if structFieldType != val.Type() {
+			return errors.New("Provided value type didn't match obj field type")
+	}
+	structFieldValue.Set(val)
+	return nil
 }
