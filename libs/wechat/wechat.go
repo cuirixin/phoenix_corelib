@@ -7,14 +7,13 @@ import (
 	"github.com/cuirixin/phoenix_corelib/utils/cache"
 	"github.com/cuirixin/phoenix_corelib/libs/wechat/context"
 	"github.com/cuirixin/phoenix_corelib/libs/wechat/mina"
-	"phoenix_corelib/libs/wechat/js"
-	// "github.com/cuirixin/phoenix_corelib/libs/wechat/js"
-	"phoenix_corelib/libs/wechat/material"
-	"phoenix_corelib/libs/wechat/menu"
-	"phoenix_corelib/libs/wechat/oauth"
-	"phoenix_corelib/libs/wechat/server"
-	"phoenix_corelib/libs/wechat/template"
-	"phoenix_corelib/libs/wechat/user"
+	"github.com/cuirixin/phoenix_corelib/libs/wechat/js"
+	"github.com/cuirixin/phoenix_corelib/libs/wechat/material"
+	"github.com/cuirixin/phoenix_corelib/libs/wechat/menu"
+	"github.com/cuirixin/phoenix_corelib/libs/wechat/oauth"
+	"github.com/cuirixin/phoenix_corelib/libs/wechat/server"
+	"github.com/cuirixin/phoenix_corelib/libs/wechat/template"
+	"github.com/cuirixin/phoenix_corelib/libs/wechat/user"
 )
 
 // Wechat struct

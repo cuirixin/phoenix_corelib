@@ -1,5 +1,5 @@
 hash: 017ea2c721c7234061567f15f17aee51bd0596757aba928f6bc69dcc10c02a9a
-updated: 2018-01-05T17:04:13.170038+08:00
+updated: 2018-01-08T20:10:09.178371+08:00
 imports:
 - name: github.com/astaxie/beego
   version: bf5c5626ab429e66d88602e1ab1ab5fbf4629a01
@@ -17,7 +17,7 @@ imports:
   subpackages:
   - memcache
 - name: github.com/cuirixin/phoenix_corelib
-  version: 7364b400ab58370c47473b45a0b8ef563dc52773
+  version: e978efcc9288b0f62f0d7a281166e7a2a00fc35c
   subpackages:
   - libs/wechat/context
   - libs/wechat/mina
