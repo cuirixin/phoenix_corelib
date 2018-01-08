@@ -1,19 +1,20 @@
 package wechat
 
 import (
-	_ "net/http"
+	"net/http"
 	"sync"
 
 	"github.com/cuirixin/phoenix_corelib/utils/cache"
 	"github.com/cuirixin/phoenix_corelib/libs/wechat/context"
 	"github.com/cuirixin/phoenix_corelib/libs/wechat/mina"
-	// "phoenix_libs/wechat/js"
-	// "phoenix_libs/wechat/material"
-	// "phoenix_libs/wechat/menu"
-	// "phoenix_libs/wechat/oauth"
-	// "phoenix_libs/wechat/server"
-	// "phoenix_libs/wechat/template"
-	// "phoenix_libs/wechat/user"
+	"phoenix_corelib/libs/wechat/js"
+	// "github.com/cuirixin/phoenix_corelib/libs/wechat/js"
+	"phoenix_corelib/libs/wechat/material"
+	"phoenix_corelib/libs/wechat/menu"
+	"phoenix_corelib/libs/wechat/oauth"
+	"phoenix_corelib/libs/wechat/server"
+	"phoenix_corelib/libs/wechat/template"
+	"phoenix_corelib/libs/wechat/user"
 )
 
 // Wechat struct
@@ -47,32 +48,15 @@ func copyConfigToContext(cfg *Config, context *context.Context) {
 	context.SetJsAPITicketLock(new(sync.RWMutex))
 }
 
-// GetMina 小程序配置
-func (wc *Wechat) GetMina() *mina.Mina {
-	return mina.NewMina(wc.Context)
-}
-
-/*
-// GetServer 消息管理
-func (wc *Wechat) GetServer(req *http.Request, writer http.ResponseWriter) *server.Server {
-	wc.Context.Request = req
-	wc.Context.Writer = writer
-	return server.NewServer(wc.Context)
-}
 
 //GetAccessToken 获取access_token
 func (wc *Wechat) GetAccessToken() (string, error) {
 	return wc.Context.GetAccessToken()
 }
 
-// GetOauth oauth2网页授权
-func (wc *Wechat) GetOauth() *oauth.Oauth {
-	return oauth.NewOauth(wc.Context)
-}
-
-// GetMaterial 素材管理
-func (wc *Wechat) GetMaterial() *material.Material {
-	return material.NewMaterial(wc.Context)
+// GetMina 小程序配置
+func (wc *Wechat) GetMina() *mina.Mina {
+	return mina.NewMina(wc.Context)
 }
 
 // GetJs js-sdk配置
@@ -80,9 +64,24 @@ func (wc *Wechat) GetJs() *js.Js {
 	return js.NewJs(wc.Context)
 }
 
+// GetOauth oauth2网页授权
+func (wc *Wechat) GetOauth() *oauth.Oauth {
+	return oauth.NewOauth(wc.Context)
+}
+
 // GetMenu 菜单管理接口
 func (wc *Wechat) GetMenu() *menu.Menu {
 	return menu.NewMenu(wc.Context)
+}
+
+// GetTemplate 模板消息接口
+func (wc *Wechat) GetTemplate() *template.Template {
+	return template.NewTemplate(wc.Context)
+}
+
+// GetMaterial 素材管理
+func (wc *Wechat) GetMaterial() *material.Material {
+	return material.NewMaterial(wc.Context)
 }
 
 // GetUser 用户管理接口
@@ -90,8 +89,9 @@ func (wc *Wechat) GetUser() *user.User {
 	return user.NewUser(wc.Context)
 }
 
-// GetTemplate 模板消息接口
-func (wc *Wechat) GetTemplate() *template.Template {
-	return template.NewTemplate(wc.Context)
+func (wc *Wechat) GetServer(req *http.Request, writer http.ResponseWriter) *server.Server {
+	wc.Context.Request = req
+	wc.Context.Writer = writer
+	return server.NewServer(wc.Context)
 }
-*/
+
