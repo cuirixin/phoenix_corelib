@@ -9,9 +9,9 @@ import (
 	"runtime/debug"
 	"strconv"
 
-	"github.com/silenceper/wechat/context"
-	"github.com/silenceper/wechat/message"
-	"github.com/silenceper/wechat/util"
+	"github.com/cuirixin/phoenix_corelib/libs/wechat/message"
+	"github.com/cuirixin/phoenix_corelib/libs/wechat/context"
+	"github.com/cuirixin/phoenix_corelib/utils"
 )
 
 //Server struct
@@ -68,7 +68,7 @@ func (srv *Server) Validate() bool {
 	timestamp := srv.Query("timestamp")
 	nonce := srv.Query("nonce")
 	signature := srv.Query("signature")
-	return signature == util.Signature(srv.Token, timestamp, nonce)
+	return signature == utils.Signature(srv.Token, timestamp, nonce)
 }
 
 //HandleRequest 处理微信的请求
@@ -121,18 +121,18 @@ func (srv *Server) getMessage() (interface{}, error) {
 		nonce := srv.Query("nonce")
 		srv.nonce = nonce
 		msgSignature := srv.Query("msg_signature")
-		msgSignatureGen := util.Signature(srv.Token, timestamp, nonce, encryptedXMLMsg.EncryptedMsg)
+		msgSignatureGen := utils.Signature(srv.Token, timestamp, nonce, encryptedXMLMsg.EncryptedMsg)
 		if msgSignature != msgSignatureGen {
 			return nil, fmt.Errorf("消息不合法，验证签名失败")
 		}
 
 		//解密
-		srv.random, rawXMLMsgBytes, err = util.DecryptMsg(srv.AppID, encryptedXMLMsg.EncryptedMsg, srv.EncodingAESKey)
+		srv.random, rawXMLMsgBytes, err = utils.DecryptMsg(srv.AppID, encryptedXMLMsg.EncryptedMsg, srv.EncodingAESKey)
 		if err != nil {
 			return nil, fmt.Errorf("消息解密失败, err=%v", err)
 		}
 	} else {
-		rawXMLMsgBytes, err = ioutil.ReadAll(srv.Request.Body)
+		rawXMLMsgBytes, err = ioutils.ReadAll(srv.Request.Body)
 		if err != nil {
 			return nil, fmt.Errorf("从body中解析xml失败, err=%v", err)
 		}
@@ -196,7 +196,7 @@ func (srv *Server) buildResponse(reply *message.Reply) (err error) {
 	params[0] = reflect.ValueOf(msgType)
 	value.MethodByName("SetMsgType").Call(params)
 
-	params[0] = reflect.ValueOf(util.GetCurrTs())
+	params[0] = reflect.ValueOf(utils.GetCurrTs())
 	value.MethodByName("SetCreateTime").Call(params)
 
 	srv.responseMsg = msgData
@@ -210,14 +210,14 @@ func (srv *Server) Send() (err error) {
 	if srv.isSafeMode {
 		//安全模式下对消息进行加密
 		var encryptedMsg []byte
-		encryptedMsg, err = util.EncryptMsg(srv.random, srv.responseRawXMLMsg, srv.AppID, srv.EncodingAESKey)
+		encryptedMsg, err = utils.EncryptMsg(srv.random, srv.responseRawXMLMsg, srv.AppID, srv.EncodingAESKey)
 		if err != nil {
 			return
 		}
 		//TODO 如果获取不到timestamp nonce 则自己生成
 		timestamp := srv.timestamp
 		timestampStr := strconv.FormatInt(timestamp, 10)
-		msgSignature := util.Signature(srv.Token, timestampStr, srv.nonce, string(encryptedMsg))
+		msgSignature := utils.Signature(srv.Token, timestampStr, srv.nonce, string(encryptedMsg))
 		replyMsg = message.ResponseEncryptedXMLMsg{
 			EncryptedMsg: string(encryptedMsg),
 			MsgSignature: msgSignature,

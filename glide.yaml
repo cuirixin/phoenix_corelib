@@ -1,20 +1,29 @@
 package: phoenix_corelib
 import:
 - package: github.com/astaxie/beego
-  version: ~1.9.2
+  version: ^1.9.2
 - package: github.com/bradfitz/gomemcache
   subpackages:
   - memcache
 - package: github.com/cuirixin/phoenix_corelib
+  version: ^0.3.1
   subpackages:
   - libs/wechat/context
+  - libs/wechat/js
+  - libs/wechat/material
+  - libs/wechat/menu
+  - libs/wechat/message
   - libs/wechat/mina
+  - libs/wechat/oauth
+  - libs/wechat/server
+  - libs/wechat/template
+  - libs/wechat/user
   - utils
   - utils/cache
 - package: github.com/dgrijalva/jwt-go
-  version: ~3.1.0
+  version: ^3.1.0
 - package: github.com/garyburd/redigo
-  version: ~1.4.0
+  version: ^1.4.0
   subpackages:
   - redis
 - package: github.com/gogap/ali_mns

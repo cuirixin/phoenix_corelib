@@ -1,5 +1,5 @@
-hash: 017ea2c721c7234061567f15f17aee51bd0596757aba928f6bc69dcc10c02a9a
-updated: 2018-01-08T20:10:09.178371+08:00
+hash: 3d633c39f27af8d7e855148c8a69be9e44d1914fb13f160213930fa1a92f0364
+updated: 2018-01-08T20:59:43.632309+08:00
 imports:
 - name: github.com/astaxie/beego
   version: bf5c5626ab429e66d88602e1ab1ab5fbf4629a01
@@ -16,6 +16,21 @@ imports:
   version: 1952afaa557dc08e8e0d89eafab110fb501c1a2b
   subpackages:
   - memcache
+- name: github.com/cuirixin/phoenix_corelib
+  version: cc757fbabc731ef6a117727aff2ee57dba44d638
+  subpackages:
+  - libs/wechat/context
+  - libs/wechat/js
+  - libs/wechat/material
+  - libs/wechat/menu
+  - libs/wechat/message
+  - libs/wechat/mina
+  - libs/wechat/oauth
+  - libs/wechat/server
+  - libs/wechat/template
+  - libs/wechat/user
+  - utils
+  - utils/cache
 - name: github.com/dgrijalva/jwt-go
   version: dbeaa9332f19a944acb5736b4456cfcc02140e29
 - name: github.com/garyburd/redigo
@@ -37,4 +52,11 @@ imports:
   version: e8439d3c857025b1d0cd05af4bfde4069da8bffa
 - name: github.com/mreiferson/go-httpclient
   version: 31f0106b4474f14bc441575c19d3a5fa21aa1f6c
+- name: github.com/silenceper/wechat
+  version: a573487584d52c87057426c9228801f9407caec1
+  subpackages:
+  - cache
+  - context
+  - message
+  - util
 testImports: []
