@@ -1,5 +1,5 @@
-hash: 3d633c39f27af8d7e855148c8a69be9e44d1914fb13f160213930fa1a92f0364
-updated: 2018-01-08T20:59:43.632309+08:00
+hash: 00c964a8c4a1bcc57e21da40bc3c4dabb400895f6eff583a15a4c573cafb1967
+updated: 2018-01-08T21:04:58.766622+08:00
 imports:
 - name: github.com/astaxie/beego
   version: bf5c5626ab429e66d88602e1ab1ab5fbf4629a01
@@ -17,7 +17,7 @@ imports:
   subpackages:
   - memcache
 - name: github.com/cuirixin/phoenix_corelib
-  version: cc757fbabc731ef6a117727aff2ee57dba44d638
+  version: 7e4f422871138e4e71a5645cfd17003399698121
   subpackages:
   - libs/wechat/context
   - libs/wechat/js
@@ -52,11 +52,4 @@ imports:
   version: e8439d3c857025b1d0cd05af4bfde4069da8bffa
 - name: github.com/mreiferson/go-httpclient
   version: 31f0106b4474f14bc441575c19d3a5fa21aa1f6c
-- name: github.com/silenceper/wechat
-  version: a573487584d52c87057426c9228801f9407caec1
-  subpackages:
-  - cache
-  - context
-  - message
-  - util
 testImports: []

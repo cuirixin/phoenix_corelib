@@ -132,7 +132,7 @@ func (srv *Server) getMessage() (interface{}, error) {
 			return nil, fmt.Errorf("消息解密失败, err=%v", err)
 		}
 	} else {
-		rawXMLMsgBytes, err = ioutils.ReadAll(srv.Request.Body)
+		rawXMLMsgBytes, err = ioutil.ReadAll(srv.Request.Body)
 		if err != nil {
 			return nil, fmt.Errorf("从body中解析xml失败, err=%v", err)
 		}
