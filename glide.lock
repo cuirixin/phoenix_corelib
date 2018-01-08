@@ -16,13 +16,6 @@ imports:
   version: 1952afaa557dc08e8e0d89eafab110fb501c1a2b
   subpackages:
   - memcache
-- name: github.com/cuirixin/phoenix_corelib
-  version: e978efcc9288b0f62f0d7a281166e7a2a00fc35c
-  subpackages:
-  - libs/wechat/context
-  - libs/wechat/mina
-  - utils
-  - utils/cache
 - name: github.com/dgrijalva/jwt-go
   version: dbeaa9332f19a944acb5736b4456cfcc02140e29
 - name: github.com/garyburd/redigo
