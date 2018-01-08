@@ -57,3 +57,49 @@ func JWTVerify(tokenString string) (bool, string) {
 	return true, uid
 }
 
+// 高级
+
+type MySuperCustomClaims struct {
+	UserId string `json:"user_id"`
+	DeviceId string `json:"device_id"`
+	Scope string `json:"scope"`
+	jwt.StandardClaims
+}
+
+func SuperJWTSign(uid, deviceId, scope string) (string, error) {
+	// Create the Claims
+	claims := MySuperCustomClaims{
+		uid,
+		deviceId,
+		scope,
+		jwt.StandardClaims{
+				NotBefore: int64(time.Now().Unix()),
+				ExpiresAt: int64(time.Now().Unix() + 86400 * 15),
+				Issuer:    "phoenix",
+		},
+	}
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
+	return token.SignedString(SecretKey)
+}
+
+func SuperJWTParse(tokenString string) (*MySuperCustomClaims, error) {
+	token, err := jwt.ParseWithClaims(tokenString, &MySuperCustomClaims{}, func(token *jwt.Token) (interface{}, error) {
+		return SecretKey, nil
+	})
+	if token == nil {
+		return &MySuperCustomClaims{}, errors.New("Null Token")
+	}
+	if claims, ok := token.Claims.(*MySuperCustomClaims); ok && token.Valid {
+		return claims, nil
+	} else {
+		return claims, err
+	}
+}
+
+func SuperJWTVerify(tokenString string) (bool, *MySuperCustomClaims) {
+	claims, err := SuperJWTParse(tokenString)
+	if err != nil {
+		return false, claims
+	}
+	return true, claims
+}

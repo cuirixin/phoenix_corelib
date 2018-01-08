@@ -12,11 +12,8 @@ import (
 	"crypto/md5"
 	"fmt"
 	"math/rand"
-	"regexp"
 	"time"
 )
-
-var emailPattern = regexp.MustCompile("[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[a-zA-Z0-9](?:[\\w-]*[\\w])?")
 
 func Md5(buf []byte) string {
 	hash := md5.New()
@@ -33,10 +30,6 @@ func SizeFormat(size float64) string {
 	}
 
 	return fmt.Sprintf("%.2f %s", size, units[n])
-}
-
-func IsEmail(b []byte) bool {
-	return emailPattern.Match(b)
 }
 
 func Password(len int, pwdO string) (pwd string, salt string) {
