@@ -2,7 +2,6 @@ package ip
 
 import (
 	"errors"
-	"github.com/astaxie/beego"
 	"github.com/gogather/com"
 	"github.com/gogather/iplocation"
 )
@@ -15,10 +14,10 @@ type IpLocation struct {
 
 // NewIpLocation init
 func NewIpLocation(key string) *IpLocation {
-	mina := new(IpLocation)
-	mina.Key = key
-	mina.Il = iplocation.NewIpLocation(key)
-	return mina
+	ip := new(IpLocation)
+	ip.Key = key
+	ip.Il = iplocation.NewIpLocation(key)
+	return ip
 }
 
 func (il *IpLocation) GetIpLocation(ip string) (string, error) {

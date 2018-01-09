@@ -13,6 +13,8 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
+	"sort"
+	"net/url"
 )
 
 func Md5(buf []byte) string {
@@ -69,3 +71,31 @@ func RandomStr(length int) string {
 // string:=strconv.Itoa(int)  
 // #int64到string  
 // string:=strconv.FormatInt(int64,10)  
+
+// Map按key正序排序后拼接url
+func ParamsSortToUrl(params map[string]string, excludeParams []string) string {
+	var keys []string  
+	for k := range params {
+		exits := false
+		for i := range excludeParams {
+			if excludeParams[i] == k {
+				exits = true
+				break
+			}
+		}
+		if !exits {
+			keys = append(keys, k)  
+		}
+	}  
+	sort.Strings(keys)
+	u := url.Values{}
+	for _, k := range keys {
+		fmt.Println("Key:", k, "Value:", params[k])  
+		u.Set(k, params[k])
+	}
+
+	// fmt.Println(u.Get("id"))
+	// fmt.Println(u.Add("id", "1"))
+
+	return u.Encode() // a=A&c=C
+}
