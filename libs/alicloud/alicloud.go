@@ -21,7 +21,7 @@ type Config struct {
 	// Cache          cache.Cache
 }
 
-// NewApi init
+// NewAlicloud init
 func NewAlicloud(cfg *Config) *Alicloud {
 	context := new(context.Context)
 	copyConfigToContext(cfg, context)
@@ -31,6 +31,7 @@ func NewAlicloud(cfg *Config) *Alicloud {
 func copyConfigToContext(cfg *Config, context *context.Context) {
 	context.AppKey = cfg.AppKey
 	context.AppSecret = cfg.AppSecret
+	context.Endpoint = cfg.Endpoint
 	// context.Token = cfg.Token
 	// context.EncodingAESKey = cfg.EncodingAESKey
 	// context.Cache = cfg.Cache

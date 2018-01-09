@@ -22,7 +22,7 @@ func TestTime(tttt *testing.T) {
 		AppID:          "wx534743a9806a1f4e",
 		AppSecret:      "78d6c7090778c532580bd599aa1c4a84",
 		Token:          "kUxrdlE7",
-		EncodingAESKey: "bINnUplgPU34aO3VWg8BIbNLLntLxL92BrR4a6Cq9CX",
+		EncodingAESKey: "bINnUplgPU34aO3VWphoenixg8BIbNLLntLxL92BrR4a6Cq9CX",
 		Cache: wCache,
 	}
 

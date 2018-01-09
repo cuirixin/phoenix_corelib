@@ -1,6 +1,10 @@
 hash: 00c964a8c4a1bcc57e21da40bc3c4dabb400895f6eff583a15a4c573cafb1967
-updated: 2018-01-08T21:07:57.591167+08:00
+updated: 2018-01-09T20:14:45.497641+08:00
 imports:
+- name: github.com/aliyun/aliyun-oss-go-sdk
+  version: 52de7239022ceba47354832fbcc65983aa8d019d
+  subpackages:
+  - oss
 - name: github.com/astaxie/beego
   version: bf5c5626ab429e66d88602e1ab1ab5fbf4629a01
   subpackages:
