@@ -1,5 +1,5 @@
-hash: 00c964a8c4a1bcc57e21da40bc3c4dabb400895f6eff583a15a4c573cafb1967
-updated: 2018-01-12T17:08:09.29894+08:00
+hash: f985fc8e41f9189ad2381fb22e4bb5a7af1e7f5d9f9acb91bbe6b64f313f7ebb
+updated: 2018-01-12T17:11:27.077693+08:00
 imports:
 - name: github.com/aliyun/aliyun-oss-go-sdk
   version: 52de7239022ceba47354832fbcc65983aa8d019d
@@ -12,7 +12,7 @@ imports:
   subpackages:
   - memcache
 - name: github.com/cuirixin/phoenix_corelib
-  version: 8bd5698d5982e13da0e7624cd1fc284df5fd1717
+  version: 31ec2ecaa7269218546c25c9a5ae872fcf6b1cc6
   subpackages:
   - libs/alicloud/context
   - libs/alicloud/openapi
