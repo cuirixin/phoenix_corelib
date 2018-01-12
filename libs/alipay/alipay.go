@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/cuirixin/alipay/encoding"
+	"github.com/cuirixin/phoenix_corelib/libs/alipay/encoding"
 )
 
 type AliPay struct {

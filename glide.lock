@@ -1,5 +1,5 @@
 hash: f985fc8e41f9189ad2381fb22e4bb5a7af1e7f5d9f9acb91bbe6b64f313f7ebb
-updated: 2018-01-12T17:11:27.077693+08:00
+updated: 2018-01-12T17:14:36.800337+08:00
 imports:
 - name: github.com/aliyun/aliyun-oss-go-sdk
   version: 52de7239022ceba47354832fbcc65983aa8d019d
@@ -16,6 +16,7 @@ imports:
   subpackages:
   - libs/alicloud/context
   - libs/alicloud/openapi
+  - libs/alipay/encoding
   - libs/wechat/context
   - libs/wechat/js
   - libs/wechat/material
@@ -49,8 +50,4 @@ imports:
   version: e8439d3c857025b1d0cd05af4bfde4069da8bffa
 - name: github.com/mreiferson/go-httpclient
   version: 31f0106b4474f14bc441575c19d3a5fa21aa1f6c
-- name: github.com/smartwalle/alipay
-  version: 5e1d86e63338f97f735c1a4179211b4529b4cebe
-  subpackages:
-  - encoding
 testImports: []
