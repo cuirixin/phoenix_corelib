@@ -8,7 +8,7 @@ import (
 func TestAliPay(t *testing.T) {
 
 	config := &Config{
-		AppId: "2017010404842100",
+		AppId: "",
 		PartnerId: "",
 		PublicKeyCertPath: "cert/alipay_demo_public_key.pem",
 		PrivateKeyCertPath: "cert/alipay_demo_private_key.pem",
