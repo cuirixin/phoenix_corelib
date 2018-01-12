@@ -18,7 +18,7 @@ func TestAliPay(t *testing.T) {
 	alipay := NewAliPay(config)
 	
 	println(alipay.appId)
-
+	
 	var p = AliPayTradeWapPay{}
 	p.NotifyURL = "xxx"
 	p.Subject = "标题"

@@ -26,7 +26,6 @@ import:
   version: ^1.4.0
   subpackages:
   - redis
-- package: github.com/gogap/ali_mns
 - package: github.com/gogap/errors
 - package: github.com/gogap/logs
 - package: github.com/gogather/com
